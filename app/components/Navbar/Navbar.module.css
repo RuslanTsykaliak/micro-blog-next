@@ -1,0 +1,35 @@
+.navWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.link_wrap {
+    display: flex;
+}
+
+.link {
+    width: 7rem;
+}
+
+.link:hover,
+.link:focus {
+    transform: scale(1.025);
+}
+
+.logoutBtn {
+    padding: 1.25rem;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: none;
+
+    font-size: 1.25rem;
+
+    cursor: pointer;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+    transform: scale(1.025);
+}

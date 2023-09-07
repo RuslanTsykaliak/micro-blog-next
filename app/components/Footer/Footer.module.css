@@ -1,0 +1,42 @@
+.footer {
+    font-size: 1.25rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px -2px 2px 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+
+    max-width: 120rem;
+}
+
+.name {
+    margin-left: 1.25rem;
+}
+
+.linkWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+
+    padding: 1rem;
+
+    list-style: none;
+}
+
+.link_logo:hover,
+.link_logo:focus {
+    transform: scale(1.025);
+}
+
+.link_item:hover,
+.link_item:focus {
+    transform: scale(1.1);
+}
