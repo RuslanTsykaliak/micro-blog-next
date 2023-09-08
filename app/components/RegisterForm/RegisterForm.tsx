@@ -1,34 +1,37 @@
 "use client";
 
-import { useForm, SubmitHandler, set } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./RegisterForm.module.css";
 import { useState } from "react";
 
+// Define a React component called RegisterForm
 export const RegisterForm = () => {
+  // Initialize form state using react-hook-form
   const {
     register,
     handleSubmit,
-    watch,
-    reset,
     formState: { errors },
-  } = useForm<InputsRegister>();
+  } = useForm<InputsRegister>(); // Define form input types using generics
 
-  const { push } = useRouter();
+  const { push } = useRouter(); // Get the router instance
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); // Initialize error state
 
+  // Define the submit handler for the registration form
   const onSubmit: SubmitHandler<InputsRegister> = async ({
     email,
     password,
     role,
   }) => {
-    setError("");
+    setError(""); // Clear any previous error messages
+
     try {
+      // Send a POST request to the registration endpoint
       const res = await fetch(
-        " ",
+        "https://micro-blog-next.vercel.app/api/auth/register", // Replace with the actual endpoint URL
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -36,16 +39,19 @@ export const RegisterForm = () => {
         }
       );
 
-      const { data } = await res.json();
+      const { data } = await res.json(); // Parse the response data
 
+      // Check if a user with the same email already exists
       if (res.status === 409) {
         throw new Error("This user already exists");
       }
 
+      // Check if the request was unsuccessful
       if (!res.ok) {
         throw new Error(`${res.statusText}`);
       }
 
+      // If registration is successful, sign in the user
       if (res.status === 200) {
         const res = await signIn("login", {
           email: data.email,
@@ -53,15 +59,17 @@ export const RegisterForm = () => {
           redirect: false,
         });
 
+        // If the sign-in is successful, redirect the user to the blog page
         if (res?.ok) {
           push("/blog");
         }
       }
     } catch (e: any) {
-      setError(`${e?.message}`);
+      setError(`${e?.message}`); // Set the error message in case of an error
     }
   };
 
+  // Render the registration form component
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -69,6 +77,7 @@ export const RegisterForm = () => {
         {error && <p className={styles.err_text}>{error}</p>}
         <div className={styles.form_wrap}>
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            {/* Email input field */}
             <label className={styles.label}>
               <p>Email</p>
               <input
@@ -84,6 +93,7 @@ export const RegisterForm = () => {
               )}
             </label>
 
+            {/* Password input field */}
             <label className={styles.label}>
               <p>Password</p>
               <input
@@ -98,11 +108,12 @@ export const RegisterForm = () => {
               />
               {errors.password && (
                 <span className={styles.error}>
-                  the field is required and must contain from 4 to 8 characters
+                  The field is required and must contain from 4 to 8 characters
                 </span>
               )}
             </label>
 
+            {/* Role selection dropdown */}
             <label className={styles.label}>
               <p>Role</p>
               <select
@@ -118,9 +129,11 @@ export const RegisterForm = () => {
               )}
             </label>
 
+            {/* Submit button */}
             <input type="submit" value="Register" className={styles.btn} />
           </form>
           <div className={styles.img_wrap}>
+            {/* Display an image */}
             <Image
               src="/register.png"
               alt="register"

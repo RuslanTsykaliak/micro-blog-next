@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { Logo } from "../Logo/Logo";
 import styles from "./Footer.module.css";
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; 
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export const Footer: FC = () => {
   return (

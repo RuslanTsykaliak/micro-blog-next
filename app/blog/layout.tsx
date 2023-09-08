@@ -1,11 +1,10 @@
-import type {Metadata} from "next";
-import {getServerSession} from "next-auth";
-
-import {authConfig} from "@/configs/auth";
+import type { Metadata } from "next";
+import { getServerSession } from "next-auth";
+import { authConfig } from "../Modal/auth";
 
 export const metadata: Metadata = {
-  title: "Blog | Main",
-  description: "Test task - Blog.",
+  title: "Blog",
+  description: "Blog posts.",
 };
 
 export default async function BlogLayout({
@@ -13,7 +12,8 @@ export default async function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authConfig);
+  // Retrive the user session on the server side
+  const session = await getServerSession(authConfig)
 
-  return <>{children}</>;
+  return <>{children}</>
 }

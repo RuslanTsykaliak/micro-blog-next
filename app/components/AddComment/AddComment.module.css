@@ -1,6 +1,5 @@
 .section {
     margin-top: 2.5rem;
-
     background-color: rgb(10, 18, 30);
     border-radius: 1.25rem;
 }
@@ -14,7 +13,6 @@
 
 .title {
     padding-top: 0.5rem;
-
     font-size: 2rem;
     text-align: center;
 }
@@ -30,7 +28,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     max-width: 40vw;
 }
 
@@ -38,7 +35,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-
     padding: 0 1.5rem 1.5rem 1.5rem;
     width: 100%;
 }
@@ -54,10 +50,8 @@
 
 .input {
     padding: 1.25rem;
-
     font-size: 1.25rem;
     font-size: 1.2rem;
-
     border: 1px solid rgb(45, 55, 72);
     border-radius: 0.6rem;
     background-color: rgba(115, 115, 116, 0.5);
@@ -67,7 +61,6 @@
 .btn {
     display: inline-block;
     padding: 0.7rem 1rem;
-
     font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
@@ -77,12 +70,9 @@
 
     background-color: rgb(22, 115, 255);
     border-radius: 0.4rem;
-    border: 2px solid rgb(22,
-            115,
-            255);
+    border: 2px solid rgb(22, 115, 255);
     backface-visibility: hidden;
     will-change: transform;
-
     transition: transform 0.3s ease 0s;
     cursor: pointer;
 }

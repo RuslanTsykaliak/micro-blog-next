@@ -3,22 +3,17 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
     margin-right: auto;
     margin-left: auto;
-
     padding-right: 1.25rem;
     padding-left: 1.25rem;
-
     max-width: 120rem;
 }
 
 .posts_wrap {
     padding-top: 4rem;
-
     max-width: 120rem;
     width: 100%;
-
     list-style: none;
 }
 
@@ -32,10 +27,8 @@
 
 .comments_wrap {
     padding: 1rem;
-
     max-width: 40vw;
     list-style: none;
-
     color: rgb(163, 163, 163);
 }
 
