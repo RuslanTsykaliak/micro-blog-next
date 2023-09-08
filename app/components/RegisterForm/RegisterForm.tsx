@@ -31,7 +31,7 @@ export const RegisterForm = () => {
     try {
       // Send a POST request to the registration endpoint
       const res = await fetch(
-        "https://micro-blog-next.vercel.app/api/auth/register", // Replace with the actual endpoint URL
+        "https://micro-blog-next-lac.vercel.app/api/auth/register", // Replace with the actual endpoint URL
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
