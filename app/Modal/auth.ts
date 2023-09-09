@@ -1,21 +1,10 @@
 import type { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
 
 const { NEXTAUTH_URL } = process.env;
 
 export const authConfig: AuthOptions = {
     providers: [
-
-        // GoogleProvider({
-        //     clientId: process.env.GOOGLE_CLIENT_ID,
-        //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        //     redirectUri: `${NEXTAUTH_URL}/api/auth/callback/google`,
-        //     options: {
-        //       buttonColor: "#000000",
-        //     },
-        //   }),
-
         CredentialsProvider({
             name: "Credentials",
             id: "login",
